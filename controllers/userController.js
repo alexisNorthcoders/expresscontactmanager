@@ -56,12 +56,12 @@ const loginUser = asyncHandler(async(req,res) => {
             }
         }, process.env.ACCESS_TOKEN_SECRET,
         {expiresIn: "15m"})
-        res.status(200).json({accessToken})
+        res.status(200).json({accessToken}) // access token inside Auth Bearer of request
     }else{
         res.status(401)
         throw new Error("Invalid email or password")
     }
-    res.json({message: "Login user"})
+    
 })
 
 //@desc Current user info
